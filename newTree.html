@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Forest</title>
+  <link href="./css/treeStyle.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="container">
+    <canvas id="tree" @click="handleCanvas"></canvas>
+    <!-- 背景图片 -->
+    <div v-if="index==4">
+      <canvas id="dot" style="background:linear-gradient(to bottom, #4e4b4d, #352b2c);position: absolute; z-index:-1">
+      </canvas>
+    </div>
+    <div v-else-if="index==5">
+      <div class="viewport"></div>
+    </div>
+    <div v-else>
+      <img :src='imgArr1[index]' id="backgroundImg">
+    </div>
+    <!--背景音乐-->
+    <audio :src="musicArr[index]" loop autoplay id="backgroundMusic"></audio>
+    <!-- 生长音乐 -->
+    <audio src='./musics/grow1.wav' loop id="growMusic"></audio>
+    <!-- 顶部导航 -->
+    <div class="top">
+      <div class="topLeft" :style="{'color':btnColors[index]}" @click="prev">
+        &lt</div>
+          <img :src='imgArr2[index]' class="topImg">
+          <div class="topFont" :style="{'color':fontColors[index]}">{{fontArr[index]}}</div>
+          <div class="topRight" :style="{'color':btnColors[index]}" @click="next"> &gt </div>
+      </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/branch.js"></script>
+    <script src="./js/dot.js"></script>
+
+    <script src="js/three.min.js"></script>
+    <script src="js/dat.gui.min.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <!-- <script src="./js/bird.js"></script> -->
+    <script  src="./js/main.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>
